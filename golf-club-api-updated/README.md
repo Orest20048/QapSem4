@@ -1,110 +1,65 @@
+A basic REST API to manage golf club members and tournaments — built with Java, Spring Boot, MySQL, and Docker.
 
-# Golf Club Membership & Tournament API
+✅ What You Can Do
+Add, update, and delete members and tournaments
 
-A Spring Boot-based RESTful API for managing golf club members and tournaments, built using Java, Gradle, MySQL, and Docker.
+Add members to tournaments
 
----
+Search members by name, phone, type, or start date
 
-## ✨ Features
+Search tournaments by location or start date
 
-- Manage golf club **Members** and **Tournaments**
-- Assign Members to Tournaments
-- Search Members by name, phone number, membership type, and membership start date
-- Search Tournaments by location and start date
-- View Members in a Tournament
-- Docker & Docker Compose support for easy setup
+See who’s in a tournament
 
----
+Run everything using Docker
 
-## 🚀 Prerequisites
+🔧 What You Need
+Docker + Docker Compose
 
-- Docker + Docker Compose
-- JDK 22+
-- Git
+Java 22 or higher
 
----
+Git
 
-## 🐳 Running with Docker
-
-```bash
+▶️ How to Start
+bash
+Копіювати
+Редагувати
 git clone https://github.com/YOUR_USERNAME/golf-club-api.git
 cd golf-club-api
 docker-compose up --build
-```
+The API will be at: http://localhost:8080
 
-The API will be available at: `http://localhost:8080`
+🔌 Main Endpoints
+Members
+GET /api/members – All members
 
----
+GET /api/members/{id} – One member
 
-## 🔌 API Endpoints
+POST /api/members – Add member
 
-### 📋 Member Endpoints
+PUT /api/members/{id} – Update member
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET    | `/api/members` | List all members |
-| GET    | `/api/members/{id}` | Get member by ID |
-| POST   | `/api/members` | Create a new member |
-| PUT    | `/api/members/{id}` | Update a member |
-| DELETE | `/api/members/{id}` | Delete a member |
-| GET    | `/api/members/search?name=John` | Search by name |
-| GET    | `/api/members/search?phone=1234567890` | Search by phone |
-| GET    | `/api/members/search?type=Gold` | Search by membership type |
-| GET    | `/api/members/search?startDate=2024-01-01` | Search by membership start date |
+DELETE /api/members/{id} – Delete member
 
-### 🏆 Tournament Endpoints
+GET /api/members/search?... – Search by name, phone, type, or date
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET    | `/api/tournaments` | List all tournaments |
-| GET    | `/api/tournaments/{id}` | Get tournament by ID |
-| POST   | `/api/tournaments` | Create a new tournament |
-| PUT    | `/api/tournaments/{id}` | Update a tournament |
-| DELETE | `/api/tournaments/{id}` | Delete a tournament |
-| POST   | `/{tournamentId}/add-member/{memberId}` | Add member to tournament |
-| GET    | `/{tournamentId}/members` | View members in a tournament |
-| GET    | `/api/tournaments/search?location=Toronto` | Search by location |
-| GET    | `/api/tournaments/search?startDate=2024-06-01` | Search by start date |
+Tournaments
+GET /api/tournaments – All tournaments
 
----
+GET /api/tournaments/{id} – One tournament
 
-## 🧪 Postman Testing
+POST /api/tournaments – Add tournament
 
-Screenshots of Postman tests are available in the `screenshots/` folder.
+PUT /api/tournaments/{id} – Update tournament
 
----
+DELETE /api/tournaments/{id} – Delete tournament
 
-## 🛠️ Lombok Support
+POST /{tournamentId}/add-member/{memberId} – Add member to tournament
 
-This project uses [Project Lombok](https://projectlombok.org/) to reduce boilerplate code.  
-Ensure that:
-- The Lombok plugin is installed in your IDE
-- Annotation Processing is enabled
+GET /{tournamentId}/members – List tournament members
 
----
+GET /api/tournaments/search?... – Search by location or date
 
-## 🐘 Database Configuration (Dockerized MySQL)
-
-- **Database:** `golfclubdb`
-- **User:** `golfuser`
-- **Password:** `golfpassword`
-- **Root Password:** `rootpassword`
-
-These are defined in `docker-compose.yml`.
-
----
-
-## ✅ Notes
-
-- All endpoints follow REST best practices
-- Dockerized build ensures consistent dev environments
-- You can add sample data via POST endpoints or with Postman collections
-
----
-
-## 👨‍💻 Author
-
-Orest Demchuk
-
----
+🧪 Testing
+Screenshots of Postman tests are in the screenshots/ folder.
 
